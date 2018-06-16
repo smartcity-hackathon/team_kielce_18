@@ -1,14 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".JakGlosowacFragment">
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:isScrollContainer="false"
+            android:background="@drawable/leftbg"
+            tools:context=".JakGlosowacFragment">
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+
+        <TextView
+            android:fontFamily="sans-serif"
+            android:id="@+id/jakGlosFrag_header_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="26dp"
+            android:paddingTop="24dp"
+            android:text="Jak zagłosować"
+            android:textSize="24sp"
+            />
+
+                <TextView
+                    android:fontFamily="sans-serif"
+                    android:id="@+id/jakGlosFrag_info_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/rounded_corner"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:text="ktomoze0"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:fontFamily="sans-serif"
+                    android:id="@+id/jakGlosFrag_info2_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_corner"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:text="ktomoze1"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:fontFamily="sans-serif"
+                    android:id="@+id/jakGlosFrag_info3_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_corner"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:text="ktomoze2"
+                    android:textSize="16sp" />
+
+
+                <TextView
+                    android:fontFamily="sans-serif"
+                    android:id="@+id/gdzie_header_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="26dp"
+                    android:paddingTop="24dp"
+                    android:text="Jak zagłosować"
+                    android:textSize="24sp"
+                    />
+                <TextView
+                    android:fontFamily="sans-serif"
+                    android:id="@+id/Gdyrozne_info_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/rounded_corner"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:text="ktomoze0"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:fontFamily="sans-serif"
+                    android:id="@+id/Gdyrozne_info2_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_corner"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:text="ktomoze1"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:fontFamily="sans-serif"
+                    android:id="@+id/Gdyrozne_info3_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_corner"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:text="ktomoze2"
+                    android:textSize="16sp" />
+
+
+            </LinearLayout>
+
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+</ScrollView>

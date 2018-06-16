@@ -1,25 +1,35 @@
 package kielce.hackathon.pl.appka;
 
+import android.location.Address;
+import android.location.Geocoder;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.maps.android.geojson.GeoJsonLayer;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private LatLng object1 = new LatLng(50.844157,20.644876);
+    private LatLng object2 = new LatLng(50.863184,20.585875);
+    private Marker mObject1;
+    private Marker mObject2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +39,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
     }
 
 
@@ -47,14 +56,42 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+   //     mMap.addMarker(new MarkerOptions()
+   //     .position(object1)
+   //     .title("Przedszkole Samorządowe nr 36 - obwód nr 64"));
+    //    mMap.addMarker(new MarkerOptions()
+      //          .position(object2)
+       //         .title("SZKOŁA PODSTAWOWA NR 31 Z ODDZIAŁAMI INTEGRACYJNYMI"));
+
         try
         {
-            JSONObject obj = new JSONObject(loadJSONFromAsset("wybory_lokale_point.geojson"));
-            GeoJsonLayer gjl = new GeoJsonLayer(mMap,obj);
-         //   gjl.addLayerToMap();
+            JSONObject json = new JSONObject(loadJSONFromAsset("wybory_lokale_point.geojson"));
+            JSONArray features = json.getJSONArray("features");
+            for(int i = 0;i<features.length();i++)
+            {
+                JSONObject object = features.getJSONObject(i);
+                JSONObject object2 = object.getJSONObject("properties");
+                String object_name = object2.getString("NAZWA");
+                object_name += " Kielce";
+                Geocoder gc = new Geocoder(getApplicationContext());
+                try
+                {
+                    List<Address> addresses = gc.getFromLocationName(object_name,2);
+                    LatLng objectcreated = new LatLng(addresses.get(0).getLatitude(),addresses.get(0).getLongitude());
+                    mMap.addMarker(new MarkerOptions()
+                                 .position(objectcreated)
+                                 .title("Object "+i));
+                    Log.d("DEB","Created object");
+                }
+                catch(IOException e)
+                {
+                    e.printStackTrace();
+                }
+
+            }
+         //   JSONObject geometry = json.getJSONObject("geometry");
+          //  GeoJsonLayer layer = new GeoJsonLayer(googleMap, json);
+         //   layer.addLayerToMap();
         }
         catch(JSONException e)
         {

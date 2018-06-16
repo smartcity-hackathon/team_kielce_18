@@ -34,10 +34,17 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".SondazeActivity"></activity>
+        <activity
+            android:name=".OkregiMaps"
+            android:label="@string/title_activity_okregi_maps" />
+        <activity android:name=".KandydaciUselesss"></activity>
     </application>
 
 </manifest>

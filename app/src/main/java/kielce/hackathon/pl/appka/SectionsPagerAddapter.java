@@ -7,6 +7,15 @@ package kielce.hackathon.pl.appka;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+
 
 /**
  * Created by user on 6/14/2018.
@@ -14,12 +23,20 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 class SectionsPagerAddapter extends FragmentPagerAdapter{
 
+
+
+
     public SectionsPagerAddapter(FragmentManager fm) {
         super(fm);
     }
 
+
+
     @Override
     public Fragment getItem(int position) {
+
+
+
         switch (position){
             case 0:
                 KandydaciFragment kandydaciFragment = new KandydaciFragment();
@@ -44,17 +61,20 @@ class SectionsPagerAddapter extends FragmentPagerAdapter{
         return 4;
     }
 
+
+
+
     public CharSequence getPageTitle(int position){
 
         switch (position){
             case 0:
                 return "Kadydaci";
             case 1:
-                return "Jak zaglosowac";
+                return "Głosuj";
             case 2:
-                return "Okregi Wyborcze";
+                return "Lokajce";
             case 3:
-                return "Lokale";
+                return "Sondaże";
             default:
                 return null;
         }
